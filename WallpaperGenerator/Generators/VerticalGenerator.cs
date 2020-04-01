@@ -5,7 +5,7 @@ namespace WallpaperGenerator.Generators
 {
     public class VerticalGenerator : BaseGenerator
     {
-        public override void Draw(Graphics graphics, Wallpaper config)
+        public override void Draw(Graphics graphics, Config config)
         {
             for (int col = 0; col < config.Size.Height; col += config.RectangleExternalSize.Width)
             {

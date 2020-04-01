@@ -5,6 +5,8 @@ namespace WallpaperGenerator.Generators
 {
     public interface IGenerator
     {
-        Bitmap Generate(Wallpaper config);
+        Bitmap Generate(Config config);
+
+        void Save(Config config, Bitmap image);
     }
 }

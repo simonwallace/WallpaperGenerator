@@ -6,7 +6,7 @@ namespace WallpaperGenerator.Generators
 {
     public class FadeColourVerticalCentreGenerator : BaseGenerator
     {
-        public override void Draw(Graphics graphics, Wallpaper config)
+        public override void Draw(Graphics graphics, Config config)
         {
             for (var row = 0; row < config.Size.Height; row += config.RectangleExternalSize.Height)
             {
