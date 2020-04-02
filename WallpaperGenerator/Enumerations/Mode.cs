@@ -8,6 +8,7 @@
         FadeAlphaVerticalRight,
         FadeColourVerticalCentre,
         Horizontal,
+        Sine,
         Vertical,
     }
 }

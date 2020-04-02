@@ -14,6 +14,7 @@ namespace WallpaperGenerator.Generators
                 case Mode.FadeAlphaVerticalRight: return new FadeAlphaVerticalRightGenerator();
                 case Mode.FadeColourVerticalCentre: return new FadeColourVerticalCentreGenerator();
                 case Mode.Horizontal: return new HorizontalGenerator();
+                case Mode.Sine: return new SineGenerator();
                 case Mode.Vertical: return new VerticalGenerator();
 
                 default: throw new NotSupportedException($"{mode} is not supported.");
