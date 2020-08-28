@@ -8,25 +8,20 @@ namespace WallpaperGenerator.Generators
     {
         public override void Draw(Graphics graphics, Config config)
         {
-            var maxHeight = config.Size.Height;
-            var midHeight = maxHeight / 2;
+            var maxHeight = config.Size.Height - config.RectangleInternalSize.Height;
+            var midHeight = maxHeight / 2d;
 
-            for (int col = 0; col < config.Size.Width; col += config.RectangleExternalSize.Width)
+            var startIndex = config.RectangleInternalSize.Width * -1;
+
+            for (int col = startIndex; col < config.Size.Width; col += config.RectangleExternalSize.Width)
             {
-                var row = maxHeight - (Convert.ToInt32(Math.Sin(col * (Math.PI / 180)) * midHeight) + midHeight);
+                var row = midHeight - (Math.Sin(col * (Math.PI / 180d)) * midHeight);
 
-                graphics.DrawRectangle
-                (
-                    new Pen
-                    (
-                        config.RectangleColour,
-                        config.RectangleThickness
-                    ),
-                    col,
-                    row,
-                    config.RectangleInternalSize.Width,
-                    config.RectangleInternalSize.Height
-                );
+                var brush = new SolidBrush(config.RectangleColour);
+                var rectangle = new Rectangle(new Point(col, (int)row), config.RectangleInternalSize);
+
+                graphics.DrawEllipse(new Pen(brush), rectangle);
+                graphics.FillEllipse(brush, rectangle);
             }
         }
     }
